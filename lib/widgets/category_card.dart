@@ -41,7 +41,7 @@ class CategoryCard extends StatelessWidget {
 
             const SizedBox(width: 8),
 
-            
+
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

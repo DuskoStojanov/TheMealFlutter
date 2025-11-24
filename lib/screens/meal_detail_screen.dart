@@ -27,14 +27,14 @@ class MealDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Слика
+            
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(meal.thumbnail),
             ),
             const SizedBox(height: 12),
 
-            // Име
+
             Text(
               meal.name,
               style: const TextStyle(
