@@ -27,7 +27,7 @@ class MealDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
+
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(meal.thumbnail),
@@ -47,7 +47,7 @@ class MealDetailScreen extends StatelessWidget {
 
 
             const Text(
-              'Состојки:',
+              'Ingredients:',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 6),
@@ -67,7 +67,7 @@ class MealDetailScreen extends StatelessWidget {
 
 
             const Text(
-              'Инструкции:',
+              'Instructions:',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 6),
@@ -83,7 +83,7 @@ class MealDetailScreen extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: _openYoutube,
                   icon: const Icon(Icons.play_circle_fill),
-                  label: const Text('YouTube видео'),
+                  label: const Text('YouTube video'),
                 ),
               ),
           ],
