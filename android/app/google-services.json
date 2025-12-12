@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481476871066",
+    "project_id": "themeallab3",
+    "storage_bucket": "themeallab3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481476871066:android:be18a7db8b4d1e1b4b3023",
+        "android_client_info": {
+          "package_name": "com.example.themeallab2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtcdCbliAYqfQDtRoUbEO9Zc9bAOiCTNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

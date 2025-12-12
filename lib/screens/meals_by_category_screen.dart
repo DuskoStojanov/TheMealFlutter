@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import '../models/category_model.dart';
 import '../models/meal_summary_model.dart';
 import '../services/api_service.dart';
+import '../services/favorites_service.dart';
 import '../widgets/meal_grid_item.dart';
 import 'meal_detail_screen.dart';
 
@@ -29,8 +32,7 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
 
   Future<void> _loadMeals() async {
     try {
-      final meals =
-      await _apiService.fetchMealsByCategory(widget.category.name);
+      final meals = await _apiService.fetchMealsByCategory(widget.category.name);
       setState(() {
         _meals = meals;
         _displayedMeals = meals;
@@ -54,7 +56,7 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
 
     try {
       final results = await _apiService.searchMealsByName(query);
-            setState(() {
+      setState(() {
         _displayedMeals = results;
       });
     } catch (e) {
@@ -82,13 +84,15 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final favoritesService = context.watch<FavoritesService>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Категорија: ${widget.category.name}'),
       ),
       body: Column(
         children: [
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -115,9 +119,13 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
               itemCount: _displayedMeals.length,
               itemBuilder: (context, index) {
                 final meal = _displayedMeals[index];
+
+
                 return MealGridItem(
                   meal: meal,
                   onTap: () => _openMealDetail(meal),
+                  isFavorite: favoritesService.isFavorite(meal.id),
+                  onFavoriteTap: () => favoritesService.toggleFavorite(meal),
                 );
               },
             ),
